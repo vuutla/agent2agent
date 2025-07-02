@@ -27,7 +27,7 @@ GOOGLE_API_KEY="your_api_key_here"
 You will need to run each agent in a separate terminal window. The first time you run these commands, `uv` will create a virtual environment and install all necessary dependencies before starting the agent.
 
 ### Terminal 1: Run Kaitlynn Agent
-```bash
+```bash - naga
 cd kaitlynn_agent_langgraph
 uv venv
 source .venv/bin/activate
@@ -35,7 +35,7 @@ uv run --active app/__main__.py
 ```
 
 ### Terminal 2: Run Nate Agent
-```bash
+```bash - ritesh
 cd nate_agent_crewai
 uv venv
 source .venv/bin/activate
@@ -43,7 +43,7 @@ uv run --active .
 ```
 
 ### Terminal 3: Run Karley Agent
-```bash
+```bash - raju
 cd karley_agent_adk
 uv venv
 source .venv/bin/activate
