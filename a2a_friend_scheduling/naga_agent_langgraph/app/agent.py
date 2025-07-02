@@ -56,7 +56,7 @@ class AvailabilityToolInput(BaseModel):
 
 @tool(args_schema=AvailabilityToolInput)
 def get_availability(date_range: str) -> str:
-    """Use this to get Kaitlyn's availability for a given date or date range."""
+    """Use this to get Naga's availability for a given date or date range."""
     dates_to_check = [d.strip() for d in date_range.split("to")]
     start_date_str = dates_to_check[0]
     end_date_str = dates_to_check[-1]
@@ -76,12 +76,12 @@ def get_availability(date_range: str) -> str:
             available_slots = KAITLYNS_CALENDAR.get(date_str, [])
             if available_slots:
                 availability = (
-                    f"On {date_str}, Kaitlyn is available at: "
+                    f"On {date_str}, Naga is available at: "
                     f"{', '.join(available_slots)}."
                 )
                 results.append(availability)
             else:
-                results.append(f"Kaitlyn is not available on {date_str}.")
+                results.append(f"Naga is not available on {date_str}.")
 
         return "\n".join(results)
 
@@ -105,7 +105,7 @@ class KaitlynAgent:
     SUPPORTED_CONTENT_TYPES = ["text", "text/plain"]
 
     SYSTEM_INSTRUCTION = (
-        "You are Kaitlyn's scheduling assistant. "
+        "You are Naga's scheduling assistant. "
         "Your sole purpose is to use the 'get_availability' tool to answer questions about Kaitlyn's schedule for playing pickleball. "
         "You will be provided with the current date to help you understand relative date queries like 'tomorrow' or 'next week'. "
         "Use this information to correctly call the tool with a specific date (e.g., 'YYYY-MM-DD'). "
@@ -152,7 +152,7 @@ class KaitlynAgent:
                 yield {
                     "is_task_complete": False,
                     "require_user_input": False,
-                    "content": "Checking Kaitlyn's availability...",
+                    "content": "Checking Naga's availability...",
                 }
             elif isinstance(message, ToolMessage):
                 yield {

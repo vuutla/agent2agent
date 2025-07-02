@@ -22,7 +22,7 @@ def generate_calendar() -> dict[str, list[str]]:
         date_str = current_date.strftime("%Y-%m-%d")
         available_slots = sorted(random.sample(possible_times, 8))
         calendar[date_str] = available_slots
-    print("---- Nate's Generated Calendar ----")
+    print("---- Ritesh's Generated Calendar ----")
     print(calendar)
     print("---------------------------------")
     return calendar

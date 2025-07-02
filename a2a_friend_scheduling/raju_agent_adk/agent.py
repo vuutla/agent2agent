@@ -5,7 +5,7 @@ from google.adk.agents import LlmAgent
 
 
 def generate_karley_calendar() -> dict[str, list[str]]:
-    """Generates a random calendar for Karley for the next 7 days."""
+    """Generates a random calendar for Raju for the next 7 days."""
     calendar = {}
     today = date.today()
     possible_times = [f"{h:02}:00" for h in range(8, 21)]  # 8 AM to 8 PM
@@ -18,7 +18,7 @@ def generate_karley_calendar() -> dict[str, list[str]]:
         available_slots = sorted(random.sample(possible_times, 8))
         calendar[date_str] = available_slots
 
-    print("Karley's calendar:", calendar)
+    print("Raju's calendar:", calendar)
 
     return calendar
 
@@ -28,14 +28,14 @@ KARLEY_CALENDAR = generate_karley_calendar()
 
 def get_availability(start_date: str, end_date: str) -> str:
     """
-    Checks Karley's availability for a given date range.
+    Checks Raju's availability for a given date range.
 
     Args:
         start_date: The start of the date range to check, in YYYY-MM-DD format.
         end_date: The end of the date range to check, in YYYY-MM-DD format.
 
     Returns:
-        A string listing Karley's available times for that date range.
+        A string listing Raju's available times for that date range.
     """
     try:
         start = datetime.strptime(start_date, "%Y-%m-%d").date()
@@ -51,10 +51,10 @@ def get_availability(start_date: str, end_date: str) -> str:
             date_str = day.strftime("%Y-%m-%d")
             available_slots = KARLEY_CALENDAR.get(date_str, [])
             if available_slots:
-                availability = f"On {date_str}, Karley is available at: {', '.join(available_slots)}."
+                availability = f"On {date_str}, Raju is available at: {', '.join(available_slots)}."
                 results.append(availability)
             else:
-                results.append(f"Karley is not available on {date_str}.")
+                results.append(f"Raju is not available on {date_str}.")
 
         return "\n".join(results)
 
